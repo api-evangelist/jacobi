@@ -1,17 +1,100 @@
 aid: jacobi
 name: Jacobi
-description: 'Jacobi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Jacobi (Jacobi, Inc.) builds a cloud-native, API-first technology platform for multi-asset portfolio
+  design, analytics and client engagement, used by asset managers, wealth managers and RIAs, asset owners
+  and pension funds, and investment consultants and OCIOs. The platform spans portfolio construction and
+  asset-allocation modeling, risk analysis, a Model Portfolio Management Solution (MPMS) covering the model
+  portfolio lifecycle, custom portfolio solutions, an OCIO solution, and the Jacobi Data Engine, which
+  unifies fragmented investment datasets and automates integration, construction, risk and reporting
+  workflows. Jacobi markets an open-architecture API layer and a Python-based Software Development Kit that
+  let analysts and developers build custom models, automate data processes and connect proprietary systems,
+  market data providers, custodians and risk engines. Each client runs on its own private deployment with
+  data segregation, encryption in transit and at rest, fine-grained permissions, enterprise IAM integration,
+  audit logging and continuous monitoring — so the API and SDK surface is provisioned per tenant and is not
+  publicly documented or self-serve. Founded by investment professionals and technologists, headquartered in
+  San Francisco with offices in London and Brisbane; raised a Series A led by QIC in 2022.
+image: https://www.jacobistrategies.com/wp-content/uploads/2023/06/Logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/jacobi/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- investment-management
+- portfolio-analytics
+- asset-allocation
+- multi-asset
+- wealth-management
+- fintech
+- risk-analytics
+- model-portfolios
+- ocio
+- financial-services
+- saas
+x-contract-discovery:
+  date: '2026-08-04'
+  result: no-public-machine-readable-contract
+  note: >-
+    Jacobi is deployed privately per client and each tenant gets its own API instance; there is no public
+    developer portal, no public API reference, and no self-serve signup. Contract discovery was run in full
+    against every reachable host and every candidate path and produced no OpenAPI, GraphQL, MCP or A2A
+    surface. The company's own documentation host is a login-gated BookStack knowledge center
+    ("Login with SSO (Jacobi staff only)" — customers reach it from inside the application), so the API and
+    SDK reference sits behind authentication and cannot be harvested from public material.
+  hosts_probed:
+  - https://www.jacobistrategies.com
+  - https://app.jacobistrategies.com
+  - https://docs.jacobistrategies.com
+  - api.jacobistrategies.com (does not resolve)
+  - developer.jacobistrategies.com (does not resolve)
+  - developers.jacobistrategies.com (does not resolve)
+  - status.jacobistrategies.com (does not resolve)
+  openapi:
+    found: false
+    paths_probed:
+    - /openapi.json
+    - /openapi.yaml
+    - /swagger.json
+    - /v1/openapi.json
+    - /api-docs
+    - /docs
+    - /redoc
+    note: >-
+      All 404 on www. On app.jacobistrategies.com the SPA catch-all returns 200 text/html for
+      /openapi.json, /swagger.json and /v1/openapi.json — HTML shells, not specs; rejected.
+  graphql:
+    found: false
+  mcp:
+    found: false
+  agent_card:
+    found: false
+    note: >-
+      /.well-known/agent-card.json and /.well-known/agent.json return 404 on www; the 200s on the app host
+      are the SPA HTML shell and were rejected. Nothing written to a2a/ — an agent card is search-only.
+  packages:
+    found: false
+    registries_probed:
+    - npm
+    - PyPI
+    note: >-
+      The Jacobi SDK is Python-based but is not published to any public registry. The PyPI package named
+      "jacobi" is an unrelated numerical-derivatives library by Hans Dembinski, not Jacobi, Inc. No GitHub
+      organization exists under jacobi / jacobistrategies / jacobi-strategies / jacobiinc.
+  incidental:
+    wordpress_rest_api: >-
+      The WordPress marketing site exposes its CMS REST API at https://www.jacobistrategies.com/wp-json/
+      (683 routes, self-describing). This is incidental content-management infrastructure for the marketing
+      site, not a Jacobi product API, and is deliberately NOT registered as an API entry.
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 3
+  pass: local-v1
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +102,33 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/jacobi-domain-security.yml
 - type: Website
+  url: https://www.jacobistrategies.com/
+- type: Login
+  url: https://app.jacobistrategies.com/
+- type: Blog
+  url: https://www.jacobistrategies.com/insights/
+- type: BlogRSS
+  url: https://www.jacobistrategies.com/insights/feed/
+- type: Support
+  url: https://www.jacobistrategies.com/contact/
+- type: PrivacyPolicy
+  url: https://www.jacobistrategies.com/privacy-policy/
+- type: About
+  url: https://www.jacobistrategies.com/about-us/
+- type: CaseStudies
+  url: https://www.jacobistrategies.com/case-studies/
+- type: Careers
+  url: https://www.jacobistrategies.com/careers/
+- type: Licenses
+  url: https://www.jacobistrategies.com/licenses/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/jacobi-strategies/
+- type: YouTube
+  url: https://www.youtube.com/channel/UCfFfOlByafFSY_duoArTH6Q
+- type: LLMsTxt
+  url: llms/jacobi-llms.txt
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/jacobi-stock

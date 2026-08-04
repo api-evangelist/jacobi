@@ -1,0 +1,54 @@
+generated: '2026-08-04'
+method: probed
+source: https://www.jacobistrategies.com/
+found: false
+note: >-
+  No /.well-known/ discovery documents are published on any Jacobi host. The marketing site
+  (www.jacobistrategies.com) returns 404 for every probed path. The application host
+  (app.jacobistrategies.com) is a single-page application whose catch-all route answers HTTP 200 with
+  the SPA HTML shell for every /.well-known/* path — those 200s are NOT documents and were rejected
+  as false positives (content-type text/html, body begins <!DOCTYPE html>). The documentation host
+  (docs.jacobistrategies.com) is a login-gated BookStack instance.
+hosts:
+  - host: https://www.jacobistrategies.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://app.jacobistrategies.com
+    note: SPA catch-all — every path returns 200 text/html; no document accepted
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        accepted: false
+        reason: html-shell
+      - path: /.well-known/agent-card.json
+        status: 200
+        accepted: false
+        reason: html-shell
+      - path: /.well-known/agent.json
+        status: 200
+        accepted: false
+        reason: html-shell
+x-evidence:
+  fetched: '2026-08-04'
+  method: HTTP GET, following redirects

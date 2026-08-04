@@ -1,0 +1,30 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.jacobistrategies.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 28 10:36:43 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: app.jacobistrategies.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 13 13:56:44 2026 GMT
+  hsts: false
+  note: application host (login); no Strict-Transport-Security header on the 302 root response
+- host: docs.jacobistrategies.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 25 08:12:17 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  note: login-gated BookStack knowledge center
+domains:
+- domain: jacobistrategies.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
