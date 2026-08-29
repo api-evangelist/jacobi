@@ -14,6 +14,17 @@ description: >-
   audit logging and continuous monitoring — so the API and SDK surface is provisioned per tenant and is not
   publicly documented or self-serve. Founded by investment professionals and technologists, headquartered in
   San Francisco with offices in London and Brisbane; raised a Series A led by QIC in 2022.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.jacobistrategies.com/wp-content/uploads/2023/06/Logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/jacobi/refs/heads/main/apis.yml
 x-type: company
